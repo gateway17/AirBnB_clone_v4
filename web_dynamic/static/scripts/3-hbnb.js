@@ -19,7 +19,16 @@ $.get('http://172.22.150.35:5001/api/v1/status/', function (data) {
   }
 });
 
-const placesDict = {};
-$.post('http://172.22.150.35:5001/api/v1/places_search', placesDict, function (data, status) {
-  alert(status)
+$.ajax({
+  type: "POST",
+  url: 'http://172.22.150.35:5001/api/v1/places_search',
+  data: JSON.stringify({}),
+  dataType: 'json',
+  contentType: 'application/json',
+  success: function (data) {
+    console.log(data)
+    for (let places of data) {
+      $('.places').append('<article>' + places.name + '</article>')
+    }
+  }
 });
