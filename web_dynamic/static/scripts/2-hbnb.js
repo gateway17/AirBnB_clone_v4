@@ -12,7 +12,9 @@ $('input[type=checkbox]').change(function () {
 $.get('http://172.22.150.35:5001/api/v1/status/', function (data) {
   if (data.status === 'OK') {
     $('div#api_status').addClass('available');
+    $('div#api_status').css('background-color', '#ff545f')
   } else {
     $('div#api_status').removeClass('available');
+    $('div#api_status').css('background-color', '#cccccc')
   }
 });
