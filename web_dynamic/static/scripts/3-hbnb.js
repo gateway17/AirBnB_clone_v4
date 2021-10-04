@@ -9,7 +9,7 @@ $('input[type=checkbox]').change(function () {
   $('.amenities h4').text(amntyList);
 });
 
-$.get('http://172.22.150.35:5001/api/v1/status/', function (data) {
+$.get('http://0.0.0.0:5001/api/v1/status/', function (data) {
   if (data.status === 'OK') {
     $('div#api_status').addClass('available');
     $('div#api_status').css('background-color', '#ff545f')
@@ -21,7 +21,7 @@ $.get('http://172.22.150.35:5001/api/v1/status/', function (data) {
 
 $.ajax({
   type: "POST",
-  url: 'http://172.22.150.35:5001/api/v1/places_search',
+  url: 'http://0.0.0.0:5001/api/v1/places_search',
   data: JSON.stringify({}),
   dataType: 'json',
   contentType: 'application/json',
